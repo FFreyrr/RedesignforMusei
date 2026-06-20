@@ -1,0 +1,60 @@
+.page-switcher {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  z-index: 9999;
+  display: flex;
+  gap: 4px;
+  padding: 5px;
+  border: 1px solid rgba(0,166,126,0.2);
+  border-radius: 999px;
+  background: rgba(0,38,33,0.82);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+  transform: translateX(-50%);
+  backdrop-filter: blur(18px);
+}
+
+.page-switcher a {
+  min-width: 76px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: rgba(255,255,255,0.72);
+  font: 700 12px/1 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.page-switcher a:hover,
+.page-switcher a.is-active {
+  background: #00a67e;
+  color: #002621;
+}
+
+.page-switcher--light {
+  border-color: rgba(0,38,33,0.1);
+  background: rgba(255,255,255,0.86);
+  box-shadow: 0 12px 30px rgba(0,38,33,0.14);
+}
+
+.page-switcher--light a {
+  color: rgba(0,38,33,0.62);
+}
+
+.page-switcher--light a:hover,
+.page-switcher--light a.is-active {
+  background: #00a67e;
+  color: #002621;
+}
+
+body.has-page-switcher {
+  padding-top: 70px;
+}
+
+body.showcase-frame .page-switcher {
+  display: none;
+}
+
+body.showcase-frame.has-page-switcher {
+  padding-top: 0 !important;
+}

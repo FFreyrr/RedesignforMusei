@@ -1,0 +1,910 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Musei - Pass Prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20260620-liquid-glass-nav-clean" />
+  <link rel="stylesheet" href="page-switcher.css?v=20260618-switcher" />
+</head>
+<body class="has-page-switcher">
+  <script>
+    if (new URLSearchParams(location.search).has('showcase')) {
+      document.body.classList.add('showcase-frame');
+    }
+  </script>
+  <nav class="page-switcher" aria-label="Page switcher">
+    <a class="is-active" href="index.html?v=page-switcher">Prototype</a>
+    <a href="p2.html?v=p2-p3-switcher">P2 Dark</a>
+    <a href="p3.html?v=p2-p3-switcher">P3 Light</a>
+  </nav>
+  <div class="device-frame">
+    <div class="phone" id="app">
+      <div class="onboarding-overlay active" id="onboardingOverlay" aria-label="App onboarding">
+        <div class="onboarding-track" id="onboardingTrack">
+          <section class="onboarding-slide onboarding-slide--opening" data-onboarding-slide="0">
+            <img src="Assets/Openning.svg" alt="Opening screen" />
+          </section>
+          <section class="onboarding-slide onboarding-ad onboarding-ad--one" data-onboarding-slide="1">
+            <div class="onboarding-status">
+              <span>9:41</span>
+              <div class="onboarding-status-icons">
+                <svg width="17" height="12" viewBox="0 0 17 12"><rect x="0" y="8" width="3" height="4" rx="0.5" fill="currentColor"/><rect x="4.5" y="5" width="3" height="7" rx="0.5" fill="currentColor"/><rect x="9" y="2" width="3" height="10" rx="0.5" fill="currentColor"/><rect x="13.5" y="0" width="3" height="12" rx="0.5" fill="currentColor"/></svg>
+                <svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 2.4C5.6 2.4 3.4 3.4 1.8 5L0 3.2C2.2 1.2 5 0 8 0s5.8 1.2 8 3.2L14.2 5C12.6 3.4 10.4 2.4 8 2.4zM8 6.4c-1.4 0-2.6.6-3.6 1.4L2.6 5.8C4 4.6 5.9 4 8 4s4 0.6 5.4 1.8L11.6 7.8C10.6 7 9.4 6.4 8 6.4zM8 10.4c-.8 0-1.4-.6-1.4-1.4S7.2 7.6 8 7.6s1.4.6 1.4 1.4S8.8 10.4 8 10.4z" fill="currentColor"/></svg>
+                <svg width="25" height="12" viewBox="0 0 25 12"><rect x="0" y="1" width="21" height="10" rx="2" stroke="currentColor" stroke-width="1" fill="none"/><rect x="22" y="4" width="2" height="4" rx="0.5" fill="currentColor"/><rect x="1.5" y="2.5" width="16" height="7" rx="1" fill="currentColor"/></svg>
+              </div>
+            </div>
+            <div class="onboarding-copy">
+              <p class="onboarding-kicker">Musei Pass</p>
+              <h1>Get a Pass,<br/>Visit Everywhere.</h1>
+              <p>One pass for museums, exhibitions, and cultural sites across Northern Italy.</p>
+            </div>
+          </section>
+          <section class="onboarding-slide onboarding-ad onboarding-ad--two" data-onboarding-slide="2">
+            <div class="onboarding-status">
+              <span>9:41</span>
+              <div class="onboarding-status-icons">
+                <svg width="17" height="12" viewBox="0 0 17 12"><rect x="0" y="8" width="3" height="4" rx="0.5" fill="currentColor"/><rect x="4.5" y="5" width="3" height="7" rx="0.5" fill="currentColor"/><rect x="9" y="2" width="3" height="10" rx="0.5" fill="currentColor"/><rect x="13.5" y="0" width="3" height="12" rx="0.5" fill="currentColor"/></svg>
+                <svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 2.4C5.6 2.4 3.4 3.4 1.8 5L0 3.2C2.2 1.2 5 0 8 0s5.8 1.2 8 3.2L14.2 5C12.6 3.4 10.4 2.4 8 2.4zM8 6.4c-1.4 0-2.6.6-3.6 1.4L2.6 5.8C4 4.6 5.9 4 8 4s4 0.6 5.4 1.8L11.6 7.8C10.6 7 9.4 6.4 8 6.4zM8 10.4c-.8 0-1.4-.6-1.4-1.4S7.2 7.6 8 7.6s1.4.6 1.4 1.4S8.8 10.4 8 10.4z" fill="currentColor"/></svg>
+                <svg width="25" height="12" viewBox="0 0 25 12"><rect x="0" y="1" width="21" height="10" rx="2" stroke="currentColor" stroke-width="1" fill="none"/><rect x="22" y="4" width="2" height="4" rx="0.5" fill="currentColor"/><rect x="1.5" y="2.5" width="16" height="7" rx="1" fill="currentColor"/></svg>
+              </div>
+            </div>
+            <div class="onboarding-copy">
+              <p class="onboarding-kicker">Explore</p>
+              <h1>Find culture<br/>near you.</h1>
+              <p>Discover museums, events, and exhibitions matched to your route and interests.</p>
+            </div>
+          </section>
+          <section class="onboarding-slide onboarding-ad onboarding-ad--three" data-onboarding-slide="3">
+            <div class="onboarding-status">
+              <span>9:41</span>
+              <div class="onboarding-status-icons">
+                <svg width="17" height="12" viewBox="0 0 17 12"><rect x="0" y="8" width="3" height="4" rx="0.5" fill="currentColor"/><rect x="4.5" y="5" width="3" height="7" rx="0.5" fill="currentColor"/><rect x="9" y="2" width="3" height="10" rx="0.5" fill="currentColor"/><rect x="13.5" y="0" width="3" height="12" rx="0.5" fill="currentColor"/></svg>
+                <svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 2.4C5.6 2.4 3.4 3.4 1.8 5L0 3.2C2.2 1.2 5 0 8 0s5.8 1.2 8 3.2L14.2 5C12.6 3.4 10.4 2.4 8 2.4zM8 6.4c-1.4 0-2.6.6-3.6 1.4L2.6 5.8C4 4.6 5.9 4 8 4s4 0.6 5.4 1.8L11.6 7.8C10.6 7 9.4 6.4 8 6.4zM8 10.4c-.8 0-1.4-.6-1.4-1.4S7.2 7.6 8 7.6s1.4.6 1.4 1.4S8.8 10.4 8 10.4z" fill="currentColor"/></svg>
+                <svg width="25" height="12" viewBox="0 0 25 12"><rect x="0" y="1" width="21" height="10" rx="2" stroke="currentColor" stroke-width="1" fill="none"/><rect x="22" y="4" width="2" height="4" rx="0.5" fill="currentColor"/><rect x="1.5" y="2.5" width="16" height="7" rx="1" fill="currentColor"/></svg>
+              </div>
+            </div>
+            <div class="onboarding-copy">
+              <p class="onboarding-kicker">One app</p>
+              <h1>Your museum<br/>journey starts here.</h1>
+              <p>Save passes, scan QR codes, and let Musei guide your next visit.</p>
+            </div>
+          </section>
+        </div>
+        <div class="onboarding-controls">
+          <div class="onboarding-dots" id="onboardingDots" aria-label="Onboarding progress"></div>
+          <button type="button" class="onboarding-next" id="onboardingNextBtn">Next</button>
+        </div>
+      </div>
+
+      <!-- Status Bar -->
+      <div class="status-bar">
+        <span class="status-time">9:41</span>
+        <div class="dynamic-island" aria-hidden="true"></div>
+        <div class="status-icons">
+          <svg width="17" height="12" viewBox="0 0 17 12"><rect x="0" y="8" width="3" height="4" rx="0.5" fill="currentColor"/><rect x="4.5" y="5" width="3" height="7" rx="0.5" fill="currentColor"/><rect x="9" y="2" width="3" height="10" rx="0.5" fill="currentColor"/><rect x="13.5" y="0" width="3" height="12" rx="0.5" fill="currentColor"/></svg>
+          <svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 2.4C5.6 2.4 3.4 3.4 1.8 5L0 3.2C2.2 1.2 5 0 8 0s5.8 1.2 8 3.2L14.2 5C12.6 3.4 10.4 2.4 8 2.4zM8 6.4c-1.4 0-2.6.6-3.6 1.4L2.6 5.8C4 4.6 5.9 4 8 4s4 0.6 5.4 1.8L11.6 7.8C10.6 7 9.4 6.4 8 6.4zM8 10.4c-0.8 0-1.4-0.6-1.4-1.4S7.2 7.6 8 7.6s1.4 0.6 1.4 1.4S8.8 10.4 8 10.4z" fill="currentColor"/></svg>
+          <svg width="25" height="12" viewBox="0 0 25 12"><rect x="0" y="1" width="21" height="10" rx="2" stroke="currentColor" stroke-width="1" fill="none"/><rect x="22" y="4" width="2" height="4" rx="0.5" fill="currentColor"/><rect x="1.5" y="2.5" width="16" height="7" rx="1" fill="currentColor"/></svg>
+        </div>
+      </div>
+
+      <!-- Header -->
+      <header class="app-header">
+        <img class="logo" src="Assets/LOGO.png" alt="Abbonamento Musei" width="48" height="32" />
+      </header>
+
+      <!-- Screens Container -->
+      <main class="screens" id="screens">
+
+        <!-- Screen 1: Your Pass -->
+        <section class="screen active" id="screen-pass" data-screen="pass">
+          <div class="screen-content pass-home scrollable">
+
+            <div class="pass-bg-decor" aria-hidden="true">
+              <span class="pass-decor-circle pass-decor-circle--1"></span>
+              <span class="pass-decor-circle pass-decor-circle--2"></span>
+              <span class="pass-decor-square"></span>
+              <span class="pass-decor-ring"></span>
+            </div>
+
+            <div class="pass-guest-search" aria-hidden="true">
+              <span>Search Museum...</span>
+              <svg width="26" height="26" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+            </div>
+
+            <div class="pass-greeting-row">
+              <h1 class="pass-greeting" id="passGreeting">Hi!</h1>
+              <div class="pass-toolbar">
+                <button class="pass-notify-btn" id="passNotifyBtn" aria-label="Notifications">
+                  <svg width="20" height="22" viewBox="0 0 24 24"><path d="M18 16v-5a6 6 0 10-12 0v5l-2 2v1h16v-1l-2-2z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10 20a2 2 0 004 0" stroke="currentColor" stroke-width="1.8"/></svg>
+                  <span class="pass-notify-dot"></span>
+                </button>
+              </div>
+            </div>
+            <p class="pass-greeting-sub" id="passGreetingSub">Your museum pass is ready</p>
+
+            <div class="pass-status" id="passStatus" hidden>
+              <svg width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+              <span>Active &middot; Valid until <strong id="passExpiry"></strong></span>
+            </div>
+
+            <div class="pass-carousel-outer">
+              <div class="pass-carousel" id="passCarousel"></div>
+            </div>
+            <div class="pass-dots" id="passDots"></div>
+
+            <button class="pass-qr-btn" id="passQrBtn" hidden>
+              <div class="pass-qr-btn-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="3" width="7" height="7" rx="1" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="14" width="7" height="7" rx="1" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M14 14h3v3M17 17h4v4M14 20h3" stroke="currentColor" stroke-width="1.8"/></svg>
+              </div>
+              <div class="pass-qr-btn-text">
+                <strong>Show QR Code</strong>
+                <span>Tap to show your entry code</span>
+              </div>
+              <svg class="pass-qr-chevron" width="8" height="14" viewBox="0 0 8 14"><path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+            </button>
+
+            <section class="pass-prizes-section" id="passPrizesSection" hidden>
+              <div class="pass-section-header">
+                <h2>Badge wall History</h2>
+              </div>
+              <div class="prizes-list pass-prizes-list" id="prizesList"></div>
+            </section>
+
+          </div>
+        </section>
+
+        <!-- Screen: Home -->
+        <section class="screen" id="screen-home" data-screen="home">
+          <div class="screen-content home-content scrollable">
+            <h1 class="home-title">Home</h1>
+            <section class="pass-fav-section home-fav-section">
+              <div class="pass-section-header">
+                <h2>Your Favorite Exhibitions / Events</h2>
+                <button class="pass-see-all" data-see-all="events">See all</button>
+              </div>
+              <div class="pass-fav-list" id="passFavoriteEvents"></div>
+            </section>
+
+            <section class="pass-fav-section home-fav-section">
+              <div class="pass-section-header">
+                <h2>Your Favorite Places</h2>
+                <button class="pass-see-all" data-see-all="places">See all</button>
+              </div>
+              <div class="pass-fav-list" id="passFavoritePlaces"></div>
+            </section>
+          </div>
+        </section>
+
+        <!-- Screen: Personal Interests -->
+        <section class="screen" id="screen-home-interests" data-screen="home-interests">
+          <div class="screen-content home-interests-content scrollable">
+            <button class="back-btn" data-back="home" aria-label="Back">
+              <svg width="10" height="18" viewBox="0 0 10 18"><path d="M9 1L1 9l8 8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <h1 class="page-title">Personal Interests</h1>
+
+            <section class="interests-section">
+              <h2 class="interests-section-title">Your interests</h2>
+              <div class="interests-your-tags" id="homeYourInterests"></div>
+            </section>
+
+            <section class="interests-section">
+              <h2 class="interests-section-title">Art &amp; Culture Type</h2>
+              <div class="interests-tag-grid" id="homeArtCultureTags"></div>
+            </section>
+
+            <section class="interests-section">
+              <h2 class="interests-section-title">Social Mode</h2>
+              <div class="interests-tag-grid" id="homeSocialTags"></div>
+            </section>
+
+            <section class="interests-section">
+              <h2 class="interests-section-title">Location preference</h2>
+              <input type="range" class="home-distance-slider" id="homeDistanceSlider" min="1" max="30" value="30" />
+              <div class="home-distance-value">
+                <span>Within:</span>
+                <span class="home-distance-box" id="homeDistanceDisplay">30</span>
+                <span>km</span>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <!-- Screen: Info Assistant -->
+        <section class="screen" id="screen-prizes" data-screen="prizes">
+          <div class="screen-content info-content scrollable">
+            <div class="info-hero">
+              <div class="info-orb" aria-hidden="true">
+                <span></span>
+              </div>
+              <h1 class="info-title">Hey Guest,<br/>What are you looking for today?</h1>
+            </div>
+
+            <div class="info-suggestions">
+              <button type="button" class="info-suggestion" data-info-prompt="I want to find cultural museums near Milan">cultural museums near Milan</button>
+              <button type="button" class="info-suggestion" data-info-prompt="I want to buy a pass">buy a pass</button>
+            </div>
+
+            <div class="info-chat" id="infoChat" aria-live="polite"></div>
+
+            <div class="info-compose">
+              <input type="text" id="infoInput" placeholder="Start searching" />
+              <button type="button" class="info-mic-btn" id="infoMicBtn" aria-label="Voice input">
+                <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 3a3 3 0 00-3 3v6a3 3 0 006 0V6a3 3 0 00-3-3z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 11a7 7 0 0014 0M12 18v3M9 21h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </button>
+              <button type="button" class="info-send-btn" id="infoSendBtn" aria-label="Send">
+                <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Screen: Profile -->
+        <section class="screen" id="screen-profile" data-screen="profile">
+          <div class="screen-content profile-content scrollable" id="profileScroll">
+            <div class="profile-header-row">
+              <h1 class="profile-title" id="profilePageTitle">Profile</h1>
+            </div>
+
+            <section class="profile-overview" id="profileOverview">
+              <div class="profile-card">
+                <div class="profile-avatar" aria-hidden="true">MR</div>
+                <div class="profile-card-text">
+                  <h2>Maria Rossi</h2>
+                  <p>Abbonamento Musei member</p>
+                  <span>Torino · Art & Culture</span>
+                </div>
+              </div>
+              <button type="button" class="profile-edit-entry" id="profileEditEntryBtn">
+                <span>Edit profile</span>
+                <svg width="18" height="14" viewBox="0 0 18 14"><path d="M1 7h14M10 1l6 6-6 6" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </section>
+
+            <section class="profile-edit-panel" id="profileEditPanel">
+              <button type="button" class="profile-edit-back" id="profileEditBackBtn">
+                <svg width="10" height="18" viewBox="0 0 10 18"><path d="M9 1L1 9l8 8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Edit profile</span>
+              </button>
+              <p class="profile-intro">If you believe that any on the information is incorrect, please write to <a href="mailto:info@abbonamentomusei.it">info@abbonamentomusei.it</a></p>
+
+              <div class="profile-form">
+                <div class="profile-row">
+                  <div class="profile-field profile-field--readonly">
+                    <label class="profile-label">First name</label>
+                    <div class="profile-readonly-value">28476</div>
+                  </div>
+                  <div class="profile-field profile-field--readonly">
+                    <label class="profile-label">Last name</label>
+                    <div class="profile-readonly-value">91305</div>
+                  </div>
+                </div>
+                <div class="profile-row">
+                  <div class="profile-field profile-field--readonly">
+                    <label class="profile-label">Gender</label>
+                    <div class="profile-readonly-value">2048</div>
+                  </div>
+                  <div class="profile-field profile-field--readonly">
+                    <label class="profile-label">Birth date</label>
+                    <div class="profile-readonly-value">12031985</div>
+                  </div>
+                </div>
+                <div class="profile-field profile-field--readonly">
+                  <label class="profile-label">Birth place</label>
+                  <div class="profile-readonly-value">10123</div>
+                </div>
+                <div class="profile-field profile-field--readonly">
+                  <label class="profile-label">Residential address</label>
+                  <div class="profile-readonly-value">12010123</div>
+                </div>
+                <div class="profile-field profile-field--readonly">
+                  <label class="profile-label">Fiscal code</label>
+                  <div class="profile-readonly-value">85221947</div>
+                </div>
+                <div class="profile-field profile-field--readonly">
+                  <label class="profile-label">Email</label>
+                  <div class="profile-readonly-value">93458210</div>
+                </div>
+
+                <hr class="profile-divider" />
+
+                <div class="profile-field profile-field--editable">
+                  <label class="profile-label" for="profilePhone">Phone number</label>
+                  <input type="tel" class="profile-input" id="profilePhone" value="+39 347 582 1904" />
+                </div>
+                <div class="profile-field profile-field--editable">
+                  <label class="profile-label" for="profileDegree">Degree</label>
+                  <div class="profile-select-wrap">
+                    <select class="profile-select" id="profileDegree">
+                      <option value="" disabled selected>Degree</option>
+                      <option value="secondary">Secondary school</option>
+                      <option value="bachelor">Bachelor's degree</option>
+                      <option value="master">Master's degree</option>
+                      <option value="phd">PhD</option>
+                      <option value="other">Other</option>
+                    </select>
+                    <svg class="profile-select-chevron" width="12" height="8" viewBox="0 0 12 8"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+                  </div>
+                </div>
+                <div class="profile-field profile-field--editable">
+                  <label class="profile-label" for="profileInterests">Interests</label>
+                  <div class="profile-select-wrap">
+                    <select class="profile-select" id="profileInterests">
+                      <option value="" disabled selected>Interests</option>
+                      <option value="art">Art &amp; Culture</option>
+                      <option value="history">History</option>
+                      <option value="science">Science</option>
+                      <option value="photography">Photography</option>
+                      <option value="architecture">Architecture</option>
+                    </select>
+                    <svg class="profile-select-chevron" width="12" height="8" viewBox="0 0 12 8"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+                  </div>
+                </div>
+              </div>
+
+              <div class="profile-consent">
+                <p class="profile-consent-intro">I agree to receive communications about my subscription and to subscribe to the Abbonamento Musei newsletter.</p>
+                <label class="profile-check">
+                  <input type="checkbox" id="newsletterPiemonte" />
+                  <span>Newsletter Piemonte Valle d'Aosta</span>
+                </label>
+                <label class="profile-check">
+                  <input type="checkbox" id="newsletterLombardia" />
+                  <span>Newsletter Lombardia Valle d'Aosta</span>
+                </label>
+                <hr class="profile-consent-divider" />
+                <label class="profile-check">
+                  <input type="checkbox" id="newsletterFamilyPiemonte" />
+                  <span>Newsletter AM Family Piemonte</span>
+                </label>
+                <label class="profile-check">
+                  <input type="checkbox" id="newsletterFamilyLombardia" />
+                  <span>Newsletter AM Family Lombardia</span>
+                </label>
+                <hr class="profile-consent-divider" />
+                <label class="profile-check profile-check--long">
+                  <input type="checkbox" id="newsletterPromo" />
+                  <span>I wish to receive promotional offers (discounts and opportunities) from Abbonamento Musei, including through advertising media and personalised social media announcements</span>
+                </label>
+                <label class="profile-check profile-check--long">
+                  <input type="checkbox" id="newsletterProfiling" />
+                  <span>I consent to profiling based on the use of my subscription and my interests in order to receive cultural offers, visit proposals and benefits in order to make the best use of my Subscription Museums through visit proposals</span>
+                </label>
+              </div>
+
+              <button type="button" class="profile-update-btn" id="profileUpdateBtn">UPDATE</button>
+            </section>
+
+            <section class="profile-settings" id="profileSettings">
+              <h2 class="profile-title">Settings</h2>
+
+              <button type="button" class="profile-setting-row" id="profilePrivacyBtn">
+                <div class="profile-setting-text">
+                  <strong>Privacy</strong>
+                  <span>Permissions and personal data</span>
+                </div>
+                <svg width="18" height="14" viewBox="0 0 18 14"><path d="M1 7h14M10 1l6 6-6 6" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <button type="button" class="profile-setting-row" id="profileLanguageBtn">
+                <div class="profile-setting-text">
+                  <strong>Language</strong>
+                  <span id="profileLanguageValue">English</span>
+                </div>
+                <svg width="18" height="14" viewBox="0 0 18 14"><path d="M1 7h14M10 1l6 6-6 6" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <button type="button" class="profile-setting-row" id="profileThemeToggleBtn">
+                <div class="profile-setting-text">
+                  <strong>Appearance</strong>
+                  <span id="profileThemeValue">Dark mode</span>
+                </div>
+                <svg width="18" height="14" viewBox="0 0 18 14"><path d="M1 7h14M10 1l6 6-6 6" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <button type="button" class="profile-setting-row profile-setting-row--static" id="profileVersionBtn">
+                <div class="profile-setting-text">
+                  <strong>Version information</strong>
+                  <span>Versione app 2.7.17</span>
+                </div>
+                <svg width="18" height="14" viewBox="0 0 18 14"><path d="M1 7h14M10 1l6 6-6 6" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </section>
+          </div>
+        </section>
+
+        <!-- Screen: Explore -->
+        <section class="screen" id="screen-explore" data-screen="explore">
+          <div class="screen-content explore-content">
+
+            <div class="explore-search-row">
+              <div class="explore-search">
+                <svg width="16" height="16" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                <input type="search" id="exploreSearch" placeholder="Search museums, exhibitions, events..." />
+              </div>
+              <button class="explore-filter-btn" id="exploreFilterBtn" aria-label="Filters">
+                <svg width="18" height="18" viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </button>
+            </div>
+
+            <div class="explore-chips" id="exploreChips">
+              <button class="explore-chip active" data-category="all">All</button>
+              <button class="explore-chip" data-category="museum">Museums</button>
+              <button class="explore-chip" data-category="exhibition">Exhibitions</button>
+              <button class="explore-chip" data-category="event">Events</button>
+            </div>
+
+            <div class="explore-discover" id="exploreDiscover">
+              <h1 class="home-title explore-discover-title">Discover</h1>
+              <div class="home-feed explore-discover-feed" id="exploreDiscoverFeed"></div>
+            </div>
+
+            <div class="explore-toolbar">
+              <span class="explore-count" id="exploreCount">0 results</span>
+              <div class="explore-toolbar-right">
+                <div class="explore-sort">
+                  <label for="exploreSort">Sort by</label>
+                  <select id="exploreSort">
+                    <option value="relevance">Relevance</option>
+                    <option value="date">Date</option>
+                    <option value="name">Name</option>
+                  </select>
+                </div>
+                <div class="explore-view-toggle">
+                  <button class="view-toggle-btn active" data-view="list" aria-label="List view">
+                    <svg width="16" height="16" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                  </button>
+                  <button class="view-toggle-btn" data-view="map" aria-label="Map view">
+                    <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9" r="2" fill="currentColor"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="explore-panel explore-list-panel active" id="exploreListPanel">
+              <div class="explore-list" id="exploreList"></div>
+            </div>
+
+            <div class="explore-panel explore-map-panel" id="exploreMapPanel">
+              <div class="explore-map" id="exploreMap">
+                <div class="map-bg" aria-hidden="true">
+                  <span class="map-label" style="top:18%;left:28%">Vercelli</span>
+                  <span class="map-label" style="top:42%;left:52%">Casale Monferrato</span>
+                  <span class="map-label" style="top:55%;left:38%">Torino</span>
+                  <span class="map-label" style="top:30%;left:68%">Milano</span>
+                  <span class="map-road map-road--1"></span>
+                  <span class="map-road map-road--2"></span>
+                  <span class="map-road map-road--3"></span>
+                </div>
+                <div id="exploreMapMarkers"></div>
+                <button class="map-locate-btn" id="mapLocateBtn" aria-label="My location">
+                  <svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+              </div>
+              <div class="map-sheet">
+                <div class="map-sheet-handle"></div>
+                <div class="map-sheet-bar">
+                  <span id="mapSheetCount">0 results</span>
+                  <button class="map-sheet-list-btn" id="mapSheetListBtn" aria-label="Switch to list">
+                    <svg width="18" height="18" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Screen: Place Detail -->
+        <section class="screen" id="screen-detail" data-screen="detail">
+          <div class="detail-scroll scrollable" id="detailScroll">
+            <div class="detail-hero" id="detailHero">
+              <button class="detail-back" id="detailBack" aria-label="Back">
+                <svg width="10" height="18" viewBox="0 0 10 18"><path d="M9 1L1 9l8 8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="detail-hero-content">
+                <p class="detail-type" id="detailType"></p>
+                <div class="detail-title-row">
+                  <h1 class="detail-title" id="detailTitle"></h1>
+                  <button class="detail-favorite-btn" id="detailFavoriteBtn" type="button" aria-label="Add to favorites" aria-pressed="false">
+                    <svg width="22" height="20" viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0112 6a5.5 5.5 0 019.5 6c-2.5 4.5-9.5 9-9.5 9z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="detail-body">
+              <div class="detail-info-row">
+                <div class="detail-info-main">
+                  <p class="detail-address" id="detailAddress"></p>
+                  <p class="detail-phone" id="detailPhone"></p>
+                  <div class="detail-card-status" id="detailCardStatus"></div>
+                  <div class="detail-badges" id="detailBadges"></div>
+                  <div class="detail-hours" id="detailHours"></div>
+                </div>
+                <button class="detail-map-btn" id="detailMapBtn" aria-label="View on map">
+                  <svg width="28" height="28" viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9" r="2.5" fill="currentColor"/></svg>
+                </button>
+              </div>
+
+              <p class="detail-desc" id="detailDesc"></p>
+
+              <div class="detail-tickets">
+                <p class="detail-tickets-label">Don't have a Pass?</p>
+                <p class="detail-ticket-line">Full price ticket: &euro;<span id="detailFullPrice"></span></p>
+                <p class="detail-ticket-line">Reduced ticket: &euro;<span id="detailReducedPrice"></span></p>
+                <button class="detail-buy-pass" id="detailBuyPass">Buy a Pass &rarr;</button>
+              </div>
+
+              <div class="detail-gallery">
+                <div class="detail-gallery-item" aria-hidden="true">
+                  <svg width="32" height="32" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8.5" cy="10" r="1.5" fill="currentColor"/><path d="M3 16l5-5 4 4 3-3 6 6" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+                </div>
+                <div class="detail-gallery-item" aria-hidden="true">
+                  <svg width="32" height="32" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8.5" cy="10" r="1.5" fill="currentColor"/><path d="M3 16l5-5 4 4 3-3 6 6" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+                </div>
+                <div class="detail-gallery-item" aria-hidden="true">
+                  <svg width="32" height="32" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8.5" cy="10" r="1.5" fill="currentColor"/><path d="M3 16l5-5 4 4 3-3 6 6" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+                </div>
+              </div>
+
+              <section class="detail-related">
+                <h2 class="detail-related-title">You might interested</h2>
+                <div class="detail-related-list" id="detailRelated"></div>
+              </section>
+
+              <footer class="detail-footer">
+                <img class="detail-footer-logo" src="Assets/LOGO.png" alt="Abbonamento Musei" />
+                <hr class="detail-footer-rule" />
+                <button class="detail-help-link" id="detailHelpBtn">Help</button>
+              </footer>
+            </div>
+          </div>
+        </section>
+
+        <!-- Screen 2: Choose Pass -->
+        <section class="screen" id="screen-choose" data-screen="choose">
+          <div class="screen-content choose-content">
+            <button class="back-btn" data-back="pass" aria-label="Back">
+              <svg width="10" height="18" viewBox="0 0 10 18"><path d="M9 1L1 9l8 8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <h1 class="page-title">Choose your pass</h1>
+            <p class="page-desc">Select the museum pass that suits your travel and interests.</p>
+
+            <div class="pass-cards">
+              <button class="pass-card pass-card--piemonte" data-region="piemonte" data-name="PIEMONTE" data-card="Assets/Card1.png" type="button">
+                <img src="Assets/Card1.png" alt="Abbonamento Musei Piemonte" />
+              </button>
+              <button class="pass-card pass-card--lombardia" data-region="lombardia" data-name="LOMBARDIA" data-card="Assets/Card2.png" type="button">
+                <img src="Assets/Card2.png" alt="Abbonamento Musei Lombardia" />
+              </button>
+              <button class="pass-card pass-card--both selected" data-region="both" data-name="PIEMONTE &amp; LOMBARDIA" data-card="Assets/Card3.png" type="button">
+                <img src="Assets/Card3.png" alt="Abbonamento Musei Piemonte &amp; Lombardia" />
+              </button>
+            </div>
+
+            <div class="pass-info-banner">
+              <div class="pass-info-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 10h18" stroke="currentColor" stroke-width="1.8"/><path d="M7 15h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </div>
+              <div class="pass-info-text">
+                <strong id="choosePassInfoTitle">PIEMONTE &amp; LOMBARDIA CARD</strong>
+                <button class="pass-details-link" id="choosePassInfoDetail" type="button">see details</button>
+              </div>
+            </div>
+
+            <div class="choose-footer">
+              <button class="btn-primary" id="chooseContinueBtn">Continue</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Screen 2b: Pass Details -->
+        <section class="screen" id="screen-pass-details" data-screen="pass-details">
+          <div class="screen-content pass-details-content scrollable">
+            <button class="back-btn" data-back="choose" aria-label="Back">
+              <svg width="10" height="18" viewBox="0 0 10 18"><path d="M9 1L1 9l8 8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <h1 class="page-title">Pass details</h1>
+            <p class="page-desc">Choose the formula that fits your route and age group.</p>
+
+            <div class="pass-detail-pricing">
+              <article class="pass-price-card">
+                <img src="Assets/Card1.png" alt="Piemonte card" />
+                <div class="pass-rate-row">
+                  <div><strong>Junior</strong><span>Up to 14y</span><b>€20</b></div>
+                  <div><strong>Young</strong><span>15–26y</span><b>€32</b></div>
+                  <div><strong>Entire</strong><span>27–64y</span><b>€58</b></div>
+                  <div><strong>Senior</strong><span>from 65y</span><b>€52</b></div>
+                </div>
+              </article>
+
+              <article class="pass-price-card">
+                <img src="Assets/Card2.png" alt="Lombardia card" />
+                <div class="pass-rate-row">
+                  <div><strong>Junior</strong><span>Up to 14y</span><b>€20</b></div>
+                  <div><strong>Young</strong><span>15–26y</span><b>€30</b></div>
+                  <div><strong>Entire</strong><span>27–64y</span><b>€42</b></div>
+                  <div><strong>Senior</strong><span>from 65y</span><b>€52</b></div>
+                </div>
+              </article>
+
+              <article class="pass-price-card">
+                <img src="Assets/Card3.png" alt="Piemonte and Lombardia card" />
+                <div class="pass-rate-row">
+                  <div><strong>Junior</strong><span>Up to 14y</span><b>€40</b></div>
+                  <div><strong>Young</strong><span>15–26y</span><b>€62</b></div>
+                  <div><strong>Entire</strong><span>27–64y</span><b>€87</b></div>
+                  <div><strong>Senior</strong><span>from 65y</span><b>€80</b></div>
+                </div>
+              </article>
+            </div>
+
+            <div class="pass-detail-links">
+              <button type="button"><span>+</span> Discount for persons with disabilities</button>
+              <button type="button"><span>+</span> Promotions</button>
+            </div>
+
+            <section class="pass-detail-section">
+              <h2>How to buy</h2>
+              <h3>Offline</h3>
+              <p>Buy or renew your subscription at one of the many sales points in Piemonte, Lombardy and Valle d'Aosta.</p>
+              <a href="#" aria-label="List of sales outlets">List of sales outlets</a>
+              <h3>Online</h3>
+              <button class="btn-primary pass-detail-buy" type="button" data-back="choose">Buy A Pass</button>
+            </section>
+
+            <section class="pass-detail-section">
+              <h2>FAQ</h2>
+              <div class="pass-faq-list">
+                <button type="button"><span>+</span> What is the Museum Pass and what does it include?</button>
+                <button type="button"><span>+</span> Purchase Methods</button>
+                <button type="button"><span>+</span> GIFT Codes</button>
+                <button type="button"><span>+</span> Registration and User Area</button>
+                <button type="button"><span>+</span> Museum Pass Renewal</button>
+                <button type="button"><span>+</span> Refund Policy</button>
+              </div>
+            </section>
+
+            <section class="pass-detail-section pass-contact">
+              <h2>Contact us</h2>
+              <p>Customer Service <strong>011 52210</strong></p>
+              <p><strong>Info@Abbonamentomusei.It</strong></p>
+            </section>
+          </div>
+        </section>
+
+        <!-- Screen 3: Your Selection -->
+        <section class="screen" id="screen-selection" data-screen="selection">
+          <div class="screen-content scrollable" id="selectionScroll">
+            <button class="back-btn" data-back="choose" aria-label="Back">
+              <svg width="10" height="18" viewBox="0 0 10 18"><path d="M9 1L1 9l8 8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <h1 class="page-title">Your selection</h1>
+
+            <div class="hero-pass-card" id="heroPassCard">
+              <img id="heroPassCardImg" src="Assets/Card3.png" alt="Abbonamento Musei Piemonte &amp; Lombardia" />
+            </div>
+
+            <div class="form-section">
+              <label class="field-label">Select number of passes</label>
+              <div class="stepper">
+                <button class="stepper-btn" id="stepperMinus" aria-label="Decrease">-</button>
+                <span class="stepper-value" id="passCount">1</span>
+                <button class="stepper-btn" id="stepperPlus" aria-label="Increase">+</button>
+              </div>
+            </div>
+
+            <div id="passHolders"></div>
+
+            <div class="selection-footer">
+              <button class="btn-primary" id="addToCartBtn">Add to cart</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Screen 4: Cart -->
+        <section class="screen" id="screen-cart" data-screen="cart">
+          <div class="screen-content scrollable">
+            <button class="back-btn" data-back="selection" aria-label="Back">
+              <svg width="10" height="18" viewBox="0 0 10 18"><path d="M9 1L1 9l8 8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <h1 class="page-title">Your cart</h1>
+
+            <div class="cart-items" id="cartItems"></div>
+
+            <div class="cart-total" id="cartTotal">
+              <span>Total price</span>
+              <span class="cart-total-amount" id="cartTotalAmount">&euro;</span>
+            </div>
+
+            <div class="form-section">
+              <label class="field-label">Payment method</label>
+              <div class="payment-options">
+                <button class="payment-option selected" data-method="card">
+                  <div class="payment-logos">
+                    <span class="visa">VISA</span>
+                    <span class="mc">MC</span>
+                  </div>
+                  <span class="payment-label">Debit / Credit card</span>
+                  <span class="radio-dot"></span>
+                </button>
+                <button class="payment-option" data-method="wallet">
+                  <div class="payment-logos wallet">
+                    <span class="apple"> Pay</span>
+                    <span class="google">G Pay</span>
+                  </div>
+                  <span class="payment-label">Apple / Google Pay</span>
+                  <span class="radio-dot"></span>
+                </button>
+              </div>
+            </div>
+
+            <div class="selection-footer">
+              <button class="btn-primary" id="confirmCartBtn">Confirm</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Screen 5: Payment -->
+        <section class="screen" id="screen-payment" data-screen="payment">
+          <div class="screen-content scrollable">
+            <button class="back-btn" data-back="cart" aria-label="Back">
+              <svg width="10" height="18" viewBox="0 0 10 18"><path d="M9 1L1 9l8 8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <h1 class="page-title">Payment</h1>
+
+            <div class="credit-card-display">
+              <p class="card-name">JOHN DOE</p>
+              <p class="card-balance-label">Account Balance</p>
+              <p class="card-balance">&euro;36.80</p>
+              <div class="card-bottom">
+                <div>
+                  <p class="card-type">Master Card</p>
+                  <p class="card-number">744 &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; 937</p>
+                </div>
+                <div class="mc-circles"><span></span><span></span></div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <label class="field-label">Card number</label>
+              <input type="text" class="text-input" placeholder="1234 5678 9012 3456" maxlength="19" id="cardNumber" />
+            </div>
+            <div class="form-section">
+              <label class="field-label">First and Last name</label>
+              <input type="text" class="text-input" placeholder="John Doe" id="cardName" />
+            </div>
+            <div class="form-section cvv-row">
+              <div>
+                <label class="field-label">CVV</label>
+                <input type="text" class="text-input cvv-input" placeholder="&bull;&bull;&bull;" maxlength="4" id="cardCvv" />
+              </div>
+            </div>
+
+            <div class="selection-footer">
+              <button class="btn-primary" id="payBtn">Pay: <span id="payAmount">&euro;</span></button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Screen 6: Success -->
+        <section class="screen" id="screen-success" data-screen="success">
+          <div class="screen-content success-content">
+            <div class="success-icon">
+              <svg width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="2" fill="none"/><path d="M14 24l7 7 13-14" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h1 class="page-title center">Payment successful</h1>
+            <p class="page-desc center">Your museum passes are ready. Present them at any participating site.</p>
+            <button class="btn-primary" id="backToPassBtn">Back to Your Pass</button>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- Bottom Nav -->
+      <nav class="bottom-nav" id="bottomNav">
+        <div class="bottom-nav-glass" aria-hidden="true">
+          <img src="Assets/bar.svg" alt="" />
+        </div>
+        <div class="bottom-nav-items">
+          <button class="nav-item" data-nav="home">
+            <img class="nav-item-icon" src="Assets/home.png" alt="" width="22" height="22" />
+            <span>Home</span>
+          </button>
+          <button class="nav-item" data-nav="explore">
+            <img class="nav-item-icon" src="Assets/explore.png" alt="" width="22" height="22" />
+            <span>Explore</span>
+          </button>
+          <div class="nav-item-spacer" aria-hidden="true"></div>
+          <button class="nav-item" data-nav="prizes">
+            <img class="nav-item-icon" src="Assets/prize.png" alt="" width="22" height="22" />
+            <span>Info</span>
+          </button>
+          <button class="nav-item" data-nav="profile">
+            <img class="nav-item-icon" src="Assets/profile.png" alt="" width="22" height="22" />
+            <span>Profile</span>
+          </button>
+        </div>
+        <div class="nav-fab-ring" aria-hidden="true"></div>
+        <button class="nav-fab active" data-nav="pass" aria-label="Pass Code">
+          <img class="nav-fab-icon" src="Assets/Passcode.png" alt="" width="40" height="40" />
+        </button>
+      </nav>
+
+      <!-- Overlay: Explore Filters -->
+      <div class="overlay" id="exploreFilterOverlay">
+        <div class="overlay-panel bottom-sheet">
+          <div class="sheet-handle"></div>
+          <h3 class="sheet-title">Filters</h3>
+          <div class="explore-filter-options">
+            <label class="filter-check"><input type="checkbox" id="filterOpenNow" /> Open now</label>
+            <label class="filter-check"><input type="checkbox" id="filterFree" /> Free entry</label>
+            <label class="filter-check"><input type="checkbox" id="filterChildFriendly" /> Child-friendly</label>
+            <label class="filter-check"><input type="checkbox" id="filterDisabledFriendly" /> Disabled-friendly</label>
+          </div>
+          <div class="filter-distance-section">
+            <p class="filter-section-title">Location preference</p>
+            <input type="range" class="filter-distance-slider" id="filterDistance" min="1" max="30" value="30" />
+            <div class="filter-distance-value">
+              <span class="filter-distance-label" id="filterDistancePrefix">Within</span>
+              <span class="filter-distance-box" id="filterDistanceDisplay">No limit</span>
+              <span class="filter-distance-unit" id="filterDistanceUnit"></span>
+            </div>
+          </div>
+          <div class="filter-actions">
+            <button type="button" class="btn-filter-reset" id="exploreFilterReset">Reset filters</button>
+            <button class="btn-primary sheet-confirm" id="exploreFilterApply">Apply filters</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Overlay: Rate Picker -->
+      <div class="overlay" id="rateOverlay">
+        <div class="overlay-panel bottom-sheet">
+          <div class="sheet-handle"></div>
+          <h3 class="sheet-title">Choose your rate</h3>
+          <div class="rate-options" id="rateOptions"></div>
+        </div>
+      </div>
+
+      <!-- Overlay: Date Picker -->
+      <div class="overlay" id="dateOverlay">
+        <div class="overlay-panel bottom-sheet">
+          <div class="sheet-handle"></div>
+          <h3 class="sheet-title">Date of birth</h3>
+          <div class="date-picker" id="datePicker">
+            <div class="date-column" id="monthCol"></div>
+            <div class="date-column" id="dayCol"></div>
+            <div class="date-column" id="yearCol"></div>
+          </div>
+          <button class="btn-primary sheet-confirm" id="dateConfirm">Confirm</button>
+        </div>
+      </div>
+
+      <!-- Overlay: Settings Picker -->
+      <div class="overlay" id="settingsChoiceOverlay">
+        <div class="overlay-panel bottom-sheet settings-choice-sheet">
+          <div class="sheet-handle"></div>
+          <h3 class="sheet-title" id="settingsChoiceTitle">Choose option</h3>
+          <div class="settings-choice-options" id="settingsChoiceOptions"></div>
+        </div>
+      </div>
+
+      <!-- Toast -->
+      <div class="toast" id="toast"></div>
+
+    </div>
+  </div>
+
+  <aside class="demo-control-panel" aria-label="Demo controls">
+    <p class="demo-control-title">Demo Controls</p>
+    <button type="button" class="demo-control-btn is-active" data-demo-pass-state="empty">未购买卡</button>
+    <button type="button" class="demo-control-btn" data-demo-pass-state="owned">已购买卡</button>
+  </aside>
+
+  <script src="app.js?v=20260620-liquid-glass-nav-clean"></script>
+</body>
+</html>
+
