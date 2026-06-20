@@ -40,9 +40,9 @@ const DEFAULT_EXPLORE_FILTERS = {
 };
 
 const FAVORITE_EVENTS = [
-  { id: 1, title: 'Klimt. Golden Visions', venue: 'Palazzo Reale', city: 'Milano', dates: '15 Mar – 20 Aug 2026', status: 'ongoing', progress: 65, thumb: 'gold' },
-  { id: 2, title: 'Van Gogh Immersive Experience', venue: 'Mudec', city: 'Milano', dates: '10 Jul – 15 Oct 2026', status: 'upcoming', daysUntil: 32, thumb: 'teal' },
-  { id: 3, title: 'The Etruscans', venue: 'Museo Civico Archeologico', city: 'Bologna', dates: 'Jan – Apr 2026', status: 'ended', progress: 100, thumb: 'stone' },
+  { id: 1, title: 'Klimt. Golden Visions', venue: 'Palazzo Reale', city: 'Milano', dates: '15 Mar – 20 Aug 2026', status: 'ongoing', progress: 65, thumb: 'gold', image: 'Assets/explore-thumb-05.jpg' },
+  { id: 2, title: 'Van Gogh Immersive Experience', venue: 'Mudec', city: 'Milano', dates: '10 Jul – 15 Oct 2026', status: 'upcoming', daysUntil: 32, thumb: 'teal', image: 'Assets/feed-novecento.png' },
+  { id: 3, title: 'The Etruscans', venue: 'Museo Civico Archeologico', city: 'Bologna', dates: 'Jan – Apr 2026', status: 'ended', progress: 100, thumb: 'stone', image: 'Assets/explore-thumb-03.jpg' },
 ];
 
 const FAVORITE_PLACES = [
@@ -718,18 +718,18 @@ function renderPassFavorites() {
     return `
       <button class="pass-fav-card" data-fav-event="${ev.id}">
         <div class="pass-fav-thumb pass-fav-thumb--${ev.thumb}">
-          <svg width="22" height="22" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 10h18" stroke="currentColor" stroke-width="1.8"/></svg>
+          <img class="pass-fav-img" src="${ev.image}" alt="" loading="lazy" />
         </div>
         <div class="pass-fav-body">
           <div class="pass-fav-topline">
             <span class="pass-fav-badge pass-fav-badge--${ev.status}">${badgeLabel}</span>
+            <span class="pass-fav-date">${eventDates}</span>
           </div>
           <p class="pass-fav-title">${ev.title}</p>
           <p class="pass-fav-sub">${ev.venue} &middot; ${ev.city}</p>
           ${statusNote}
         </div>
         <div class="pass-fav-side">
-          <span class="pass-fav-date">${eventDates}</span>
           <svg class="pass-fav-heart" width="18" height="16" viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0112 6a5.5 5.5 0 019.5 6c-2.5 4.5-9.5 9-9.5 9z" fill="currentColor"/></svg>
         </div>
       </button>`;
@@ -744,21 +744,27 @@ function renderPassFavorites() {
 
   const placesEl = $('#passFavoritePlaces');
   if (!placesEl) return;
-  placesEl.innerHTML = FAVORITE_PLACES.map(pl => `
-    <button class="pass-fav-card" data-fav-place="${pl.id}">
-      <div class="pass-fav-thumb pass-fav-thumb--place">
-        <svg width="22" height="22" viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9" r="2" fill="currentColor"/></svg>
-      </div>
-      <div class="pass-fav-body">
-        <p class="pass-fav-title">${pl.title}</p>
-        <p class="pass-fav-sub">${pl.address}</p>
-      </div>
-      <div class="pass-fav-side">
-        <span class="pass-fav-date">Included</span>
-        <svg class="pass-fav-icon" width="18" height="22" viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
-      </div>
-    </button>
-  `).join('');
+  placesEl.innerHTML = FAVORITE_PLACES.map(pl => {
+    const place = EXPLORE_ITEMS.find(item => item.id === pl.exploreId);
+    return `
+      <button class="pass-fav-card" data-fav-place="${pl.id}">
+        <div class="pass-fav-thumb pass-fav-thumb--place">
+          <img class="pass-fav-img" src="${place?.image || 'Assets/explore-thumb-04.jpg'}" alt="" loading="lazy" />
+        </div>
+        <div class="pass-fav-body">
+          <div class="pass-fav-topline">
+            <span class="pass-fav-badge pass-fav-badge--place">PLACE</span>
+            <span class="pass-fav-date">Included</span>
+          </div>
+          <p class="pass-fav-title">${pl.title}</p>
+          <p class="pass-fav-sub">${pl.address}</p>
+        </div>
+        <div class="pass-fav-side">
+          <svg class="pass-fav-icon" width="18" height="22" viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        </div>
+      </button>
+    `;
+  }).join('');
 
   placesEl.querySelectorAll('[data-fav-place]').forEach(btn => {
     btn.addEventListener('click', () => {

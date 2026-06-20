@@ -1348,9 +1348,9 @@ body.showcase-frame .demo-control-panel {
 
 .pass-fav-card {
   display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 16px 14px;
+  align-items: stretch;
+  gap: 12px;
+  padding: 12px;
   background: var(--bg-elevated);
   border: 1px solid var(--border-green);
   border-radius: 18px;
@@ -1359,20 +1359,29 @@ body.showcase-frame .demo-control-panel {
   text-align: left;
   font-family: var(--font);
   transition: border-color 0.15s;
-  min-height: 104px;
+  min-height: 100px;
 }
 
 .pass-fav-card:hover { border-color: var(--green-primary); }
 
 .pass-fav-thumb {
-  width: 64px;
-  height: 64px;
+  width: 78px;
+  height: 76px;
   border-radius: 12px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--green-primary);
+  overflow: hidden;
+  background: var(--green-primary-soft);
+}
+
+.pass-fav-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .pass-fav-thumb--teal { background: rgba(0,166,126,0.25); }
@@ -1383,20 +1392,19 @@ body.showcase-frame .demo-control-panel {
 .pass-fav-body {
   flex: 1;
   min-width: 0;
-  align-self: stretch;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .pass-fav-side {
-  width: 96px;
+  width: 24px;
   align-self: stretch;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  justify-content: space-between;
-  padding: 2px 0 0;
+  justify-content: flex-end;
+  padding: 0 0 2px;
   flex-shrink: 0;
 }
 
@@ -1404,13 +1412,14 @@ body.showcase-frame .demo-control-panel {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 10px;
+  gap: 8px;
+  min-height: 22px;
+  margin-bottom: 9px;
+  width: 100%;
 }
 
 .pass-fav-topline--place {
-  justify-content: flex-end;
-  margin-bottom: 8px;
+  margin-bottom: 9px;
 }
 
 .pass-fav-badge {
@@ -1422,22 +1431,27 @@ body.showcase-frame .demo-control-panel {
   border-radius: 7px;
   margin-bottom: 0;
   line-height: 1;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .pass-fav-date {
-  flex-shrink: 0;
+  flex: 1;
+  min-width: 0;
   color: var(--text);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
   line-height: 1;
   text-align: right;
   white-space: nowrap;
-  max-width: 112px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .pass-fav-badge--ongoing { background: var(--green-primary-soft); color: var(--green-primary); }
 .pass-fav-badge--upcoming { background: rgba(220,160,60,0.2); color: #d4a03c; }
 .pass-fav-badge--ended { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.45); }
+.pass-fav-badge--place { background: var(--green-primary-soft); color: var(--green-primary); }
 
 .pass-fav-title {
   font-size: 15px;
