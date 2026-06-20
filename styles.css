@@ -3483,8 +3483,8 @@ body.showcase-frame .demo-control-panel {
 }
 
 .detail-card-status.is-not-included {
-  background: #ffe8c7;
-  color: #b86900;
+  background: #ffe6dc;
+  color: #d64a1f;
 }
 
 .detail-badges {
@@ -4407,6 +4407,11 @@ body.showcase-frame .demo-control-panel {
   transform: translateX(-50%) translateY(0);
 }
 
+.toast.is-error {
+  background: #d64a1f;
+  color: #fff;
+}
+
 /* Profile */
 #screen-profile {
   background: #fff;
@@ -4948,6 +4953,51 @@ body.showcase-frame .demo-control-panel {
 
 .settings-choice-option.is-selected .settings-choice-option-mark {
   opacity: 1;
+}
+
+.settings-detail-sheet {
+  padding-bottom: 30px;
+}
+
+.settings-detail-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  color: rgba(0,38,33,0.68);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.settings-detail-body > p {
+  margin: 0;
+}
+
+.settings-detail-group {
+  padding: 14px 16px;
+  border: 1px solid rgba(0,38,33,0.1);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.88);
+}
+
+.settings-detail-group h4 {
+  margin: 0 0 6px;
+  color: var(--text-dark);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.settings-detail-group p {
+  margin: 0;
+}
+
+.settings-detail-warning {
+  border-color: rgba(214,74,31,0.24);
+  background: #ffe6dc;
+  color: #b63d18;
+}
+
+.settings-detail-warning h4 {
+  color: #d64a1f;
 }
 
 .profile-setting-row svg {

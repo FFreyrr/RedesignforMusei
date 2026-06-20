@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20260620-light-text-fix" />
+  <link rel="stylesheet" href="styles.css?v=20260620-settings-detail" />
   <link rel="stylesheet" href="page-switcher.css?v=20260618-switcher" />
 </head>
 <body class="has-page-switcher">
@@ -899,6 +899,15 @@
         </div>
       </div>
 
+      <!-- Overlay: Settings Detail -->
+      <div class="overlay" id="settingsDetailOverlay">
+        <div class="overlay-panel bottom-sheet settings-detail-sheet">
+          <div class="sheet-handle"></div>
+          <h3 class="sheet-title" id="settingsDetailTitle">Settings</h3>
+          <div class="settings-detail-body" id="settingsDetailBody"></div>
+        </div>
+      </div>
+
       <!-- Toast -->
       <div class="toast" id="toast"></div>
 
@@ -911,7 +920,7 @@
     <button type="button" class="demo-control-btn" data-demo-pass-state="owned">已购买卡</button>
   </aside>
 
-  <script src="app.js?v=20260620-home-card-images"></script>
+  <script src="app.js?v=20260620-settings-detail"></script>
 </body>
 </html>
 

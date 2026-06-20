@@ -379,6 +379,12 @@ function openSettingsChoice(title, options, currentValue, onSelect) {
   $('#settingsChoiceOverlay').classList.add('active');
 }
 
+function openSettingsDetail(title, bodyHtml) {
+  $('#settingsDetailTitle').textContent = title;
+  $('#settingsDetailBody').innerHTML = bodyHtml;
+  $('#settingsDetailOverlay').classList.add('active');
+}
+
 function updateProfileSettingLabels() {
   const fontSizeValue = $('#profileFontSizeValue');
   const accessibleFontValue = $('#profileAccessibleFontValue');
@@ -429,9 +435,10 @@ function setActiveNav(nav) {
   if (fab) fab.classList.add('active');
 }
 
-function showToast(msg) {
+function showToast(msg, type = 'default') {
   const t = $('#toast');
   t.textContent = msg;
+  t.classList.toggle('is-error', type === 'error');
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2500);
 }
@@ -584,9 +591,9 @@ function openDatePicker(index) {
 function validateHolders() {
   for (let i = 0; i < state.holders.length; i++) {
     const h = state.holders[i];
-    if (!h.rate) { showToast(`Please select a rate for pass ${i + 1}`); return false; }
-    if (!h.name.trim()) { showToast(`Please enter a name for pass ${i + 1}`); return false; }
-    if (!h.dob) { showToast(`Please select date of birth for pass ${i + 1}`); return false; }
+    if (!h.rate) { showToast(`Please select a rate for pass ${i + 1}`, 'error'); return false; }
+    if (!h.name.trim()) { showToast(`Please enter a name for pass ${i + 1}`, 'error'); return false; }
+    if (!h.dob) { showToast(`Please select date of birth for pass ${i + 1}`, 'error'); return false; }
   }
   return true;
 }
@@ -914,7 +921,7 @@ function updateChoosePageAvailability() {
 function proceedFromChoose() {
   const selected = $('.pass-card.selected');
   if (!selected || selected.classList.contains('is-owned')) {
-    showToast('Please select an available pass');
+    showToast('Please select an available pass', 'error');
     return;
   }
   state.region = selected.dataset.region;
@@ -934,12 +941,12 @@ function finalizePurchase() {
   if (state.cart.length === 0) return false;
 
   if (state.ownedPasses.length >= MAX_OWNED_PASSES) {
-    showToast('You already own the maximum of 3 passes');
+    showToast('You already own the maximum of 3 passes', 'error');
     return false;
   }
 
   if (state.ownedPasses.some(p => p.region === state.region)) {
-    showToast('You already own this regional pass');
+    showToast('You already own this regional pass', 'error');
     return false;
   }
 
@@ -1729,7 +1736,21 @@ function initProfile() {
   });
 
   $('#profilePrivacyBtn')?.addEventListener('click', () => {
-    showToast('Privacy settings — demo only');
+    openSettingsDetail('Privacy', `
+      <p>Musei uses your account information only to manage museum passes, favorite places, recommendations, and service notifications.</p>
+      <div class="settings-detail-group">
+        <h4>Personal data</h4>
+        <p>Name, email, date of birth, pass region, and saved museum interests are stored for pass management and personalized discovery.</p>
+      </div>
+      <div class="settings-detail-group">
+        <h4>Permissions</h4>
+        <p>Location is used only when you ask to find nearby museums. Notifications can be used for pass updates, booking reminders, and favorite events.</p>
+      </div>
+      <div class="settings-detail-group settings-detail-warning">
+        <h4>Error report</h4>
+        <p>If a payment or account action fails, the app shows an orange-red warning and asks you to check the missing information.</p>
+      </div>
+    `);
   });
 
   $('#profileLanguageBtn')?.addEventListener('click', (e) => {
@@ -1763,6 +1784,20 @@ function initProfile() {
       applyTheme(resolveThemePreference(value));
     });
   }, true);
+
+  $('#profileVersionBtn')?.addEventListener('click', () => {
+    openSettingsDetail('Version information', `
+      <p>Versione app 2.7.17</p>
+      <div class="settings-detail-group">
+        <h4>Prototype build</h4>
+        <p>This preview includes onboarding, pass purchase, wallet QR code, Home favorites, Explore search, Info assistant, and Profile settings.</p>
+      </div>
+      <div class="settings-detail-group">
+        <h4>Last updated</h4>
+        <p>June 20, 2026</p>
+      </div>
+    `);
+  });
 
   $('#profileSettingsJump')?.addEventListener('click', () => {
     $('#profileSettings')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1841,7 +1876,7 @@ function init() {
   });
 
   $('#confirmCartBtn').addEventListener('click', () => {
-    if (state.cart.length === 0) { showToast('Your cart is empty'); return; }
+    if (state.cart.length === 0) { showToast('Your cart is empty', 'error'); return; }
     if (state.paymentMethod === 'wallet') {
       showToast('Apple/Google Pay — demo only');
       setTimeout(() => {
@@ -1859,7 +1894,7 @@ function init() {
     const num = $('#cardNumber').value.trim();
     const name = $('#cardName').value.trim();
     const cvv = $('#cardCvv').value.trim();
-    if (!num || !name || !cvv) { showToast('Please fill in all payment fields'); return; }
+    if (!num || !name || !cvv) { showToast('Please fill in all payment fields', 'error'); return; }
     if (!finalizePurchase()) return;
     showToast('Payment successful');
     navigateTo('pass');
