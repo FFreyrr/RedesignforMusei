@@ -2364,15 +2364,18 @@ body.showcase-frame .demo-control-panel {
   flex-direction: column;
   gap: 14px;
   padding-bottom: 8px;
+  width: 100%;
 }
 
 .explore-discover-title {
   padding: 0;
   margin: 4px 0 0;
+  width: 100%;
 }
 
 .explore-discover-feed {
-  padding: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .explore-chip {
@@ -2670,7 +2673,9 @@ body.showcase-frame .demo-control-panel {
 }
 
 .explore-content .explore-discover-feed {
-  padding: 0;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
 }
 
 .home-feed-empty {
