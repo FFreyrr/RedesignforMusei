@@ -424,6 +424,7 @@ function setProfileComplete(complete) {
 
 function setActiveNav(nav) {
   $$('.nav-item').forEach(n => n.classList.toggle('active', n.dataset.nav === nav));
+  $('#bottomNav')?.setAttribute('data-active-nav', nav);
   const fab = $('.nav-fab');
   if (fab) fab.classList.add('active');
 }

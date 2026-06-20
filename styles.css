@@ -4002,6 +4002,29 @@ body.showcase-frame .demo-control-panel {
   mix-blend-mode: normal;
 }
 
+.bottom-nav-active-icons {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.nav-active-icon {
+  fill: var(--green-primary);
+  opacity: 0;
+  transition: opacity 0.16s ease;
+}
+
+.bottom-nav[data-active-nav="home"] .nav-active-icon--home,
+.bottom-nav[data-active-nav="explore"] .nav-active-icon--explore,
+.bottom-nav[data-active-nav="pass"] .nav-active-icon--pass,
+.bottom-nav[data-active-nav="prizes"] .nav-active-icon--prizes,
+.bottom-nav[data-active-nav="profile"] .nav-active-icon--profile {
+  opacity: 1;
+}
+
 .bottom-nav-items {
   position: absolute;
   bottom: 28px;
@@ -4063,9 +4086,9 @@ body.showcase-frame .demo-control-panel {
 }
 
 .nav-item.active .nav-item-icon {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(-1px);
+  opacity: 0;
+  visibility: hidden;
+  transform: none;
 }
 
 .nav-item span {
@@ -4118,16 +4141,11 @@ body.showcase-frame .demo-control-panel {
   border-color: transparent;
 }
 
-.bottom-nav .nav-item:not(.active) .nav-item-icon,
+.bottom-nav .nav-item-icon,
 .bottom-nav .nav-item span,
 .bottom-nav .nav-fab-icon {
-  visibility: hidden;
-  opacity: 0;
-}
-
-.bottom-nav .nav-item.active .nav-item-icon {
-  visibility: visible !important;
-  opacity: 1 !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
 }
 
 /* Hide bottom nav on sub-screens */
