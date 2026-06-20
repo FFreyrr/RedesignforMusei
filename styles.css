@@ -4047,12 +4047,14 @@ body.showcase-frame .demo-control-panel {
 }
 
 .nav-item-icon {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   object-fit: contain;
   display: block;
   opacity: 0;
-  transition: opacity 0.15s;
+  visibility: hidden;
+  filter: brightness(0) saturate(100%) invert(45%) sepia(94%) saturate(735%) hue-rotate(126deg) brightness(91%) contrast(101%);
+  transition: opacity 0.15s, transform 0.15s;
 }
 
 .nav-item.active {
@@ -4061,11 +4063,14 @@ body.showcase-frame .demo-control-panel {
 }
 
 .nav-item.active .nav-item-icon {
-  opacity: 0;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-1px);
 }
 
 .nav-item span {
   opacity: 0;
+  visibility: hidden;
 }
 
 .nav-fab-ring {
@@ -4113,11 +4118,16 @@ body.showcase-frame .demo-control-panel {
   border-color: transparent;
 }
 
-.bottom-nav .nav-item-icon,
+.bottom-nav .nav-item:not(.active) .nav-item-icon,
 .bottom-nav .nav-item span,
 .bottom-nav .nav-fab-icon {
-  visibility: hidden !important;
-  opacity: 0 !important;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.bottom-nav .nav-item.active .nav-item-icon {
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 /* Hide bottom nav on sub-screens */
