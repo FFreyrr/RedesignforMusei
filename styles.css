@@ -173,6 +173,57 @@
   color: #fff;
 }
 
+.phone[data-theme="light"] .page-subtitle,
+.phone[data-theme="light"] .pass-qr-btn-text span,
+.phone[data-theme="light"] .pass-info-text p,
+.phone[data-theme="light"] .field-label,
+.phone[data-theme="light"] .pass-holder-summary,
+.phone[data-theme="light"] .pass-holder-header .chevron,
+.phone[data-theme="light"] .cart-item-sub,
+.phone[data-theme="light"] .cart-empty,
+.phone[data-theme="light"] .explore-sort label,
+.phone[data-theme="light"] .view-toggle-btn,
+.phone[data-theme="light"] .interests-empty,
+.phone[data-theme="light"] .home-feed-card-summary,
+.phone[data-theme="light"] .home-feed-card-date,
+.phone[data-theme="light"] .home-feed-card-meta,
+.phone[data-theme="light"] .profile-card-sub,
+.phone[data-theme="light"] .profile-setting-meta,
+.phone[data-theme="light"] .info-suggestion,
+.phone[data-theme="light"] .chat-message,
+.phone[data-theme="light"] .assistant-card-meta {
+  color: rgba(0,38,33,0.64);
+}
+
+.phone[data-theme="light"] .pass-qr-btn-text strong,
+.phone[data-theme="light"] .pass-info-text strong,
+.phone[data-theme="light"] .pass-holder-header,
+.phone[data-theme="light"] .cart-item-title,
+.phone[data-theme="light"] .cart-total,
+.phone[data-theme="light"] .explore-count,
+.phone[data-theme="light"] .explore-sort select,
+.phone[data-theme="light"] .home-feed-card-title,
+.phone[data-theme="light"] .interests-section-title,
+.phone[data-theme="light"] .profile-card-name,
+.phone[data-theme="light"] .profile-setting-title,
+.phone[data-theme="light"] .info-hero-title,
+.phone[data-theme="light"] .assistant-card-title {
+  color: var(--text-dark);
+}
+
+.phone[data-theme="light"] .pass-holder,
+.phone[data-theme="light"] .pass-info-banner,
+.phone[data-theme="light"] .explore-sort select,
+.phone[data-theme="light"] .explore-view-toggle,
+.phone[data-theme="light"] .cart-delete {
+  background: rgba(255,255,255,0.9);
+}
+
+.phone[data-theme="light"] .home-feed-card:not(.home-feed-card--has-image) .home-feed-card-badge {
+  background: rgba(0,166,126,0.12);
+  color: var(--green-primary);
+}
+
 html, body {
   height: 100%;
   background: #001a17;
