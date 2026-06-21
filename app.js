@@ -207,6 +207,8 @@ const state = {
   language: 'English',
   profileComplete: true,
   profileEditing: false,
+  qrCardFlipped: false,
+  walletAddState: 'idle',
   onboardingIndex: 0,
   onboardingComplete: false,
 };
@@ -275,6 +277,7 @@ function navigateTo(screen) {
   if (screen === 'prizes') renderPrizes();
   if (screen === 'explore') renderExplore();
   if (screen === 'detail') renderDetail();
+  if (screen === 'pass-qr') renderQrPassPage();
 }
 
 function applyTheme(theme) {
@@ -647,6 +650,73 @@ function buildDigitalPassHTML(pass) {
         </div>
       </div>
     </div>`;
+}
+
+function getActivePass() {
+  return state.ownedPasses[state.carouselIndex] || state.ownedPasses[0] || {
+    id: 2026062101,
+    region: 'lombardia',
+    regionName: 'LOMBARDIA',
+    cardImage: 'Assets/pass-lombardia.svg',
+    holderName: 'Maria Rossi',
+    cardNumber: 'AML4821',
+    expiry: '18/06/2027',
+  };
+}
+
+function getQrDisplayPass() {
+  const activePass = getActivePass();
+  return {
+    id: 2026062101,
+    region: 'lombardia',
+    regionName: 'LOMBARDIA',
+    cardImage: 'Assets/pass-lombardia.svg',
+    holderName: activePass.holderName || 'Maria Rossi',
+    cardNumber: 'AML4821',
+    expiry: activePass.expiry || '18/06/2027',
+  };
+}
+
+function renderQrPassPage() {
+  const pass = getQrDisplayPass();
+  const viewer = $('#qrCardViewer');
+  const back = $('#qrCardBack');
+  const progress = $('#walletProgress');
+  const walletText = $('#appleWalletText');
+  if (!viewer || !back) return;
+
+  viewer.classList.toggle('is-flipped', state.qrCardFlipped);
+  viewer.setAttribute('aria-pressed', state.qrCardFlipped ? 'true' : 'false');
+  back.innerHTML = `
+    <div class="qr-back-header">
+      <div>
+        <p>Abbonamento Musei</p>
+        <strong>${formatRegionTitle(pass.regionName)}</strong>
+      </div>
+      <img src="Assets/LOGO.png" alt="" />
+    </div>
+    <div class="qr-back-code" aria-label="Entry QR code">${generateQRPattern(pass.id)}</div>
+    <div class="qr-back-meta">
+      <div><span>Holder</span><strong>${pass.holderName}</strong></div>
+      <div><span>Card number</span><strong>${pass.cardNumber}</strong></div>
+      <div><span>Valid until</span><strong>${pass.expiry}</strong></div>
+    </div>
+  `;
+
+  const labels = {
+    idle: 'Add to Apple Wallet',
+    adding: 'Adding...',
+    verifying: 'Verifying pass...',
+    done: 'Added to Apple Wallet',
+  };
+  if (walletText) walletText.textContent = labels[state.walletAddState] || labels.idle;
+  if (progress) {
+    progress.textContent = state.walletAddState === 'done'
+      ? 'Your Lombardia pass is now ready in Apple Wallet.'
+      : state.walletAddState === 'idle'
+        ? ''
+        : 'Preparing a secure Wallet pass preview.';
+  }
 }
 
 function buildAddPassHTML() {
@@ -1679,8 +1749,27 @@ function startPurchase() {
 
 function initPassPage() {
   $('#passQrBtn').addEventListener('click', () => {
-    const pass = state.ownedPasses[state.carouselIndex] || state.ownedPasses[0];
-    if (pass) showToast(`QR Code — ${pass.cardNumber}`);
+    state.qrCardFlipped = false;
+    state.walletAddState = 'idle';
+    navigateTo('pass-qr');
+  });
+  $('#qrCardViewer')?.addEventListener('click', () => {
+    state.qrCardFlipped = !state.qrCardFlipped;
+    renderQrPassPage();
+  });
+  $('#appleWalletBtn')?.addEventListener('click', () => {
+    if (state.walletAddState === 'adding' || state.walletAddState === 'verifying') return;
+    state.walletAddState = 'adding';
+    renderQrPassPage();
+    setTimeout(() => {
+      state.walletAddState = 'verifying';
+      renderQrPassPage();
+    }, 850);
+    setTimeout(() => {
+      state.walletAddState = 'done';
+      renderQrPassPage();
+      showToast('Added to Apple Wallet');
+    }, 1700);
   });
   $('#passNotifyBtn').addEventListener('click', () => showToast('No new notifications'));
   $$('.pass-see-all').forEach(btn => {

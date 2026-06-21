@@ -84,91 +84,95 @@ const SCREENS = [
     action: `${OWNED_PASS} navigateTo('pass'); setActiveNav('pass'); renderPassWallet();`,
   },
   {
-    title: '03 Home - Discover',
+    title: '03 Pass - QR Wallet',
+    action: `${OWNED_PASS} state.qrCardFlipped = false; state.walletAddState = 'idle'; navigateTo('pass-qr'); setActiveNav('pass'); renderQrPassPage();`,
+  },
+  {
+    title: '04 Home - Discover',
     action: `navigateTo('home'); setActiveNav('home');`,
   },
   {
-    title: '04 Home - Personal Interests',
+    title: '05 Home - Personal Interests',
     action: `navigateTo('home-interests'); setActiveNav('home');`,
   },
   {
-    title: '05 Explore - List',
+    title: '06 Explore - List',
     action: `navigateTo('explore'); setActiveNav('explore'); setExploreView('list');`,
   },
   {
-    title: '06 Explore - Map',
+    title: '07 Explore - Map',
     action: `navigateTo('explore'); setActiveNav('explore'); setExploreView('map');`,
   },
   {
-    title: '07 Explore - Filters Sheet',
+    title: '08 Explore - Filters Sheet',
     action: `navigateTo('explore'); setActiveNav('explore'); setExploreView('list'); document.querySelector('#exploreFilterOverlay').classList.add('active');`,
   },
   {
-    title: '08 Place Detail',
+    title: '09 Place Detail',
     action: `state.exploreView = 'list'; openDetail(3, 'explore'); setActiveNav('explore');`,
   },
   {
-    title: '09 Choose Pass',
+    title: '10 Choose Pass',
     action: `navigateTo('choose');`,
   },
   {
-    title: '10 Selection - Holder Form',
+    title: '11 Selection - Holder Form',
     action: `${SELECTION_READY} navigateTo('selection');`,
   },
   {
-    title: '11 Selection - Rate Sheet',
+    title: '12 Selection - Rate Sheet',
     action: `${SELECTION_READY} navigateTo('selection'); openRatePicker(0);`,
   },
   {
-    title: '12 Selection - Date Sheet',
+    title: '13 Selection - Date Sheet',
     action: `${SELECTION_READY} navigateTo('selection'); openDatePicker(0);`,
   },
   {
-    title: '13 Cart',
+    title: '14 Cart',
     action: `${CART_READY} navigateTo('cart');`,
   },
   {
-    title: '14 Payment',
+    title: '15 Payment',
     action: `${CART_READY} navigateTo('payment');`,
   },
   {
-    title: '15 Success',
+    title: '16 Success',
     action: `${CART_READY} navigateTo('success');`,
   },
   {
-    title: '16 Info - Start',
+    title: '17 Info - Start',
     action: `navigateTo('prizes'); setActiveNav('prizes');`,
   },
   {
-    title: '17 Info - Assistant Results',
+    title: '18 Info - Assistant Results',
     action: `navigateTo('prizes'); setActiveNav('prizes'); handleInfoPrompt('I want to find cultural museums near Milan');`,
   },
   {
-    title: '18 Pass Details',
+    title: '19 Pass Details',
     action: `navigateTo('pass-details');`,
   },
   {
-    title: '19 Profile - Edit Profile',
+    title: '20 Profile - Edit Profile',
     action: `setProfileComplete(false); navigateTo('profile'); setActiveNav('profile');`,
   },
   {
-    title: '20 Profile - My Profile',
+    title: '21 Profile - My Profile',
     action: `setProfileComplete(true); navigateTo('profile'); setActiveNav('profile'); document.querySelector('#profileScroll').scrollTop = 0;`,
   },
   {
-    title: '21 Profile - Privacy',
+    title: '22 Profile - Privacy',
     action: `setProfileComplete(true); navigateTo('profile'); setActiveNav('profile'); document.querySelector('#profileScroll').scrollTop = 9999; ${SETTINGS_SHEETS.privacy}`,
   },
   {
-    title: '22 Profile - Language Sheet',
+    title: '23 Profile - Language Sheet',
     action: `setProfileComplete(true); navigateTo('profile'); setActiveNav('profile'); document.querySelector('#profileScroll').scrollTop = 9999; ${SETTINGS_SHEETS.language}`,
   },
   {
-    title: '23 Profile - Appearance Sheet',
+    title: '24 Profile - Appearance Sheet',
     action: `setProfileComplete(true); navigateTo('profile'); setActiveNav('profile'); document.querySelector('#profileScroll').scrollTop = 9999; ${SETTINGS_SHEETS.appearance}`,
   },
   {
-    title: '24 Profile - Version',
+    title: '25 Profile - Version',
     action: `setProfileComplete(true); navigateTo('profile'); setActiveNav('profile'); document.querySelector('#profileScroll').scrollTop = 9999; ${SETTINGS_SHEETS.version}`,
   },
 ];

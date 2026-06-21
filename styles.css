@@ -224,6 +224,15 @@
   color: var(--green-primary);
 }
 
+.phone[data-theme="light"] .pass-qr-content {
+  background: linear-gradient(180deg, rgba(0,166,126,0.16) 0%, #fff 42%);
+  color: var(--text-dark);
+}
+
+.phone[data-theme="light"] .wallet-progress {
+  color: rgba(0,38,33,0.62);
+}
+
 html, body {
   height: 100%;
   background: #001a17;
@@ -1366,6 +1375,168 @@ body.showcase-frame .demo-control-panel {
 }
 
 .pass-qr-chevron { color: rgba(255,255,255,0.4); flex-shrink: 0; }
+
+/* QR Card Detail */
+.pass-qr-content {
+  padding: 76px 20px calc(var(--ios-bottom-safe) + 20px);
+  background: var(--bg);
+  color: var(--text);
+}
+
+.qr-card-viewer {
+  width: 100%;
+  min-height: 220px;
+  margin: 22px 0 18px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  perspective: 1000px;
+  cursor: pointer;
+  position: relative;
+  font-family: var(--font);
+}
+
+.qr-card-face {
+  width: 100%;
+  min-height: 220px;
+  border-radius: 24px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: transform 0.45s ease;
+  box-shadow: 0 18px 34px rgba(0,0,0,0.2);
+}
+
+.qr-card-face--front {
+  display: grid;
+  place-items: center;
+  background: transparent;
+}
+
+.qr-card-face--front img {
+  width: 100%;
+  display: block;
+  border-radius: 24px;
+}
+
+.qr-card-face--back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+  padding: 18px;
+  background: var(--surface);
+  color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.qr-card-viewer.is-flipped .qr-card-face--front { transform: rotateY(180deg); }
+.qr-card-viewer.is-flipped .qr-card-face--back { transform: rotateY(360deg); }
+
+.qr-back-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.qr-back-header p {
+  margin: 0 0 3px;
+  color: var(--green-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+.qr-back-header strong {
+  color: var(--text-dark);
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.qr-back-header img {
+  width: 42px;
+  height: auto;
+  filter: brightness(0) saturate(100%);
+}
+
+.qr-back-code {
+  width: 112px;
+  height: 112px;
+  margin: 0 auto;
+  padding: 12px;
+  border-radius: 18px;
+  background: var(--green-light);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 4px;
+}
+
+.qr-back-code span {
+  border-radius: 2px;
+  background: var(--text-dark);
+}
+
+.qr-back-code span.accent { background: var(--green-primary); }
+
+.qr-back-meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--green-light);
+  margin-top: auto;
+}
+
+.qr-back-meta span {
+  display: block;
+  color: var(--green-muted);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 3px;
+}
+
+.qr-back-meta strong {
+  display: block;
+  color: var(--text-dark);
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.apple-wallet-btn {
+  width: 100%;
+  min-height: 54px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.22);
+}
+
+.apple-wallet-icon {
+  display: inline-flex;
+  color: #fff;
+}
+
+.wallet-progress {
+  min-height: 22px;
+  margin-top: 12px;
+  color: rgba(255,255,255,0.62);
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.4;
+}
 
 /* Favorites */
 .pass-fav-section {

@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20260621-pass-svg-cards" />
+  <link rel="stylesheet" href="styles.css?v=20260621-qr-wallet-page" />
   <link rel="stylesheet" href="page-switcher.css?v=20260618-switcher" />
 </head>
 <body class="has-page-switcher">
@@ -154,6 +154,32 @@
               <div class="prizes-list pass-prizes-list" id="prizesList"></div>
             </section>
 
+          </div>
+        </section>
+
+        <!-- Screen: QR Code / Wallet Card -->
+        <section class="screen" id="screen-pass-qr" data-screen="pass-qr">
+          <div class="screen-content pass-qr-content">
+            <button class="back-btn" data-back="pass" aria-label="Back">
+              <svg width="10" height="18" viewBox="0 0 10 18"><path d="M9 1L1 9l8 8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <h1 class="page-title">Show your QR code</h1>
+            <p class="page-desc">Tap the card to view the back side and entry details.</p>
+
+            <button class="qr-card-viewer" id="qrCardViewer" type="button" aria-label="Flip card" aria-pressed="false">
+              <div class="qr-card-face qr-card-face--front">
+                <img src="Assets/pass-lombardia.svg" alt="Abbonamento Musei Lombardia" />
+              </div>
+              <div class="qr-card-face qr-card-face--back" id="qrCardBack"></div>
+            </button>
+
+            <button class="apple-wallet-btn" id="appleWalletBtn" type="button">
+              <span class="apple-wallet-icon" aria-hidden="true">
+                <svg width="18" height="22" viewBox="0 0 18 22"><path d="M13.6 0c.1 1.4-.5 2.8-1.4 3.8-.9 1-2.4 1.7-3.8 1.6-.2-1.4.5-2.8 1.3-3.7C10.7.7 12.2.1 13.6 0z" fill="currentColor"/><path d="M17.4 16.1c-.5 1.2-.8 1.7-1.5 2.8-1 1.5-2.4 3.1-4.1 3.1-1.5 0-1.9-1-3.9-1s-2.5 1-3.9 1c-1.7 0-3-1.5-4-3C-2.1 15.6-1.3 9.6 2 7.7c1.2-.7 2.6-.8 3.8-.5.9.2 1.7.7 2.3.7.6 0 1.6-.8 2.8-.8 1 0 3 .3 4.4 2.3-3.8 2.1-3.2 7.2.1 6.7z" fill="currentColor"/></svg>
+              </span>
+              <span id="appleWalletText">Add to Apple Wallet</span>
+            </button>
+            <p class="wallet-progress" id="walletProgress" aria-live="polite"></p>
           </div>
         </section>
 
@@ -920,7 +946,7 @@
     <button type="button" class="demo-control-btn" data-demo-pass-state="owned">Pass owned</button>
   </aside>
 
-  <script src="app.js?v=20260621-pass-svg-cards"></script>
+  <script src="app.js?v=20260621-qr-wallet-page"></script>
 </body>
 </html>
 
