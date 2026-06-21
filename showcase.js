@@ -28,7 +28,7 @@ const OWNED_PASS = `
     id: 20260618,
     region: 'both',
     regionName: 'PIEMONTE & LOMBARDIA',
-    cardImage: 'Assets/Card3.png',
+    cardImage: 'Assets/pass-piemonte-lombardia.svg',
     holderName: 'Maria Rossi',
     cardNumber: 'AML4821',
     expiry: '18/06/2027'
@@ -39,7 +39,7 @@ const OWNED_PASS = `
 const SELECTION_READY = `
   state.region = 'both';
   state.regionName = 'PIEMONTE & LOMBARDIA';
-  state.cardImage = 'Assets/Card3.png';
+  state.cardImage = 'Assets/pass-piemonte-lombardia.svg';
   state.passCount = 1;
   state.holders = [{
     rate: RATES[0],
@@ -56,7 +56,7 @@ const SELECTION_READY = `
 const CART_READY = `
   state.region = 'both';
   state.regionName = 'PIEMONTE & LOMBARDIA';
-  state.cardImage = 'Assets/Card3.png';
+  state.cardImage = 'Assets/pass-piemonte-lombardia.svg';
   state.cart = [{
     id: 1,
     rateName: 'Ordinary',
