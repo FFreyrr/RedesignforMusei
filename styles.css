@@ -4060,6 +4060,10 @@ body.showcase-frame .demo-control-panel {
   box-shadow: 0 16px 28px rgba(0,0,0,0.26);
 }
 
+.bottom-nav[data-active-nav="pass"] .bottom-nav-glass::after {
+  background: #00BF92;
+}
+
 .bottom-nav-glass img {
   position: relative;
   z-index: 2;
@@ -4091,6 +4095,10 @@ body.showcase-frame .demo-control-panel {
 .bottom-nav[data-active-nav="prizes"] .nav-active-icon--prizes,
 .bottom-nav[data-active-nav="profile"] .nav-active-icon--profile {
   opacity: 1;
+}
+
+.bottom-nav[data-active-nav="pass"] .nav-active-icon--pass {
+  fill: #C8FFF0;
 }
 
 .bottom-nav-items {
