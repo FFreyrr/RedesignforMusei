@@ -68,9 +68,10 @@ const CART_READY = `
 `;
 
 const SETTINGS_SHEETS = {
-  font: `openSettingsChoice('Font size', ['Compact', 'Standard', 'Large'], state.fontSize, (value) => { state.fontSize = value; updateProfileSettingLabels(); });`,
-  accessible: `openSettingsChoice('Accessible font', ['Off', 'On'], state.accessibleFont, (value) => { state.accessibleFont = value; updateProfileSettingLabels(); });`,
+  privacy: `openSettingsDetail('Privacy', '<p>Musei uses your account information only to manage museum passes, favorite places, recommendations, and service notifications.</p><div class="settings-detail-group"><h4>Personal data</h4><p>Name, email, date of birth, pass region, and saved museum interests are stored for pass management and personalized discovery.</p></div><div class="settings-detail-group"><h4>Permissions</h4><p>Location is used only when you ask to find nearby museums. Notifications can be used for pass updates, booking reminders, and favorite events.</p></div><div class="settings-detail-group settings-detail-warning"><h4>Error report</h4><p>If a payment or account action fails, the app shows an orange-red warning and asks you to check the missing information.</p></div>');`,
+  language: `openSettingsChoice('Language', ['English', 'Italian', 'Chinese'], state.language, (value) => { state.language = value; updateProfileSettingLabels(); });`,
   appearance: `openSettingsChoice('Appearance', ['Light mode', 'Dark mode', 'Follow system'], state.themePreference, (value) => { state.themePreference = value; applyTheme(resolveThemePreference(value)); });`,
+  version: `openSettingsDetail('Version information', '<p>App version 2.7.17</p><div class="settings-detail-group"><h4>Prototype build</h4><p>This preview includes onboarding, pass purchase, wallet QR code, Home favorites, Explore search, Info assistant, and Profile settings.</p></div><div class="settings-detail-group"><h4>Last updated</h4><p>June 21, 2026</p></div>');`,
 };
 
 const SCREENS = [
@@ -135,28 +136,40 @@ const SCREENS = [
     action: `${CART_READY} navigateTo('success');`,
   },
   {
-    title: '16 Prizes',
+    title: '16 Info - Start',
     action: `navigateTo('prizes'); setActiveNav('prizes');`,
   },
   {
-    title: '17 Profile - Edit Profile',
+    title: '17 Info - Assistant Results',
+    action: `navigateTo('prizes'); setActiveNav('prizes'); handleInfoPrompt('I want to find cultural museums near Milan');`,
+  },
+  {
+    title: '18 Pass Details',
+    action: `navigateTo('pass-details');`,
+  },
+  {
+    title: '19 Profile - Edit Profile',
     action: `setProfileComplete(false); navigateTo('profile'); setActiveNav('profile');`,
   },
   {
-    title: '18 Profile - My Profile',
+    title: '20 Profile - My Profile',
     action: `setProfileComplete(true); navigateTo('profile'); setActiveNav('profile'); document.querySelector('#profileScroll').scrollTop = 0;`,
   },
   {
-    title: '19 Profile - Font Size Sheet',
-    action: `setProfileComplete(true); navigateTo('profile'); setActiveNav('profile'); document.querySelector('#profileScroll').scrollTop = 9999; ${SETTINGS_SHEETS.font}`,
+    title: '21 Profile - Privacy',
+    action: `setProfileComplete(true); navigateTo('profile'); setActiveNav('profile'); document.querySelector('#profileScroll').scrollTop = 9999; ${SETTINGS_SHEETS.privacy}`,
   },
   {
-    title: '20 Profile - Accessible Font Sheet',
-    action: `setProfileComplete(true); navigateTo('profile'); setActiveNav('profile'); document.querySelector('#profileScroll').scrollTop = 9999; ${SETTINGS_SHEETS.accessible}`,
+    title: '22 Profile - Language Sheet',
+    action: `setProfileComplete(true); navigateTo('profile'); setActiveNav('profile'); document.querySelector('#profileScroll').scrollTop = 9999; ${SETTINGS_SHEETS.language}`,
   },
   {
-    title: '21 Profile - Appearance Sheet',
+    title: '23 Profile - Appearance Sheet',
     action: `setProfileComplete(true); navigateTo('profile'); setActiveNav('profile'); document.querySelector('#profileScroll').scrollTop = 9999; ${SETTINGS_SHEETS.appearance}`,
+  },
+  {
+    title: '24 Profile - Version',
+    action: `setProfileComplete(true); navigateTo('profile'); setActiveNav('profile'); document.querySelector('#profileScroll').scrollTop = 9999; ${SETTINGS_SHEETS.version}`,
   },
 ];
 
@@ -168,7 +181,7 @@ function buildFrame(screen, index) {
       <span>${String(index + 1).padStart(2, '0')}</span>
       <h2>${screen.title.replace(/^\d+\s*/, '')}</h2>
     </header>
-    <iframe title="${screen.title}" src="index.html?showcase=${THEME}-${index}" loading="lazy"></iframe>
+    <iframe title="${screen.title}" src="index.html?showcase=${THEME}-${index}&showcaseScreen=${index}"></iframe>
   `;
 
   const frame = item.querySelector('iframe');
@@ -201,13 +214,20 @@ function buildFrame(screen, index) {
     `;
     doc.head.appendChild(style);
 
-    try {
-      win.eval(`${BASE_ACTION} ${screen.action}`);
-    } catch (error) {
-      item.classList.add('is-error');
-      item.dataset.error = error.message;
-      console.error(`Showcase state failed: ${screen.title}`, error);
-    }
+    const applyScreen = () => {
+      if (!win.__museiReady) {
+        win.setTimeout(applyScreen, 50);
+        return;
+      }
+      try {
+        win.eval(`${BASE_ACTION} ${screen.action}`);
+      } catch (error) {
+        item.classList.add('is-error');
+        item.dataset.error = error.message;
+        console.error(`Showcase state failed: ${screen.title}`, error);
+      }
+    };
+    applyScreen();
   });
 
   return item;

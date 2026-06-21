@@ -1207,7 +1207,7 @@ function renderPrizes() {
 
 function getInfoMuseumRecommendations(prompt = '') {
   const normalized = prompt.toLowerCase();
-  const wantsMilan = /milan|milano|米兰/.test(normalized);
+  const wantsMilan = /milan|milano/.test(normalized);
   const preferredIds = wantsMilan ? [4, 7, 10] : [4, 7, 3];
   return preferredIds
     .map(id => EXPLORE_ITEMS.find(item => item.id === id))
@@ -1251,7 +1251,7 @@ function handleInfoPrompt(prompt) {
   $('#infoInput').value = '';
 
   const lower = value.toLowerCase();
-  if (/买卡|购买|卡|pass|card|buy/.test(lower)) {
+  if (/pass|card|buy/.test(lower)) {
     appendInfoMessage('assistant', 'Sure, I will take you to the pass page.');
     setTimeout(() => {
       navigateTo('pass');
@@ -1260,7 +1260,7 @@ function handleInfoPrompt(prompt) {
     return;
   }
 
-  if (/milan|milano|米兰|museum|博物馆|文化|culture/.test(lower)) {
+  if (/milan|milano|museum|culture/.test(lower)) {
     renderInfoRecommendations(value);
     return;
   }
@@ -1755,7 +1755,7 @@ function initProfile() {
 
   $('#profileLanguageBtn')?.addEventListener('click', (e) => {
     e.stopImmediatePropagation();
-    openSettingsChoice('Language', ['English', 'Italiano', '中文'], state.language, (value) => {
+    openSettingsChoice('Language', ['English', 'Italian', 'Chinese'], state.language, (value) => {
       state.language = value;
       updateProfileSettingLabels();
     });
@@ -1787,7 +1787,7 @@ function initProfile() {
 
   $('#profileVersionBtn')?.addEventListener('click', () => {
     openSettingsDetail('Version information', `
-      <p>Versione app 2.7.17</p>
+      <p>App version 2.7.17</p>
       <div class="settings-detail-group">
         <h4>Prototype build</h4>
         <p>This preview includes onboarding, pass purchase, wallet QR code, Home favorites, Explore search, Info assistant, and Profile settings.</p>
@@ -1950,6 +1950,7 @@ function init() {
   renderHome();
   renderPrizes();
   renderExplore();
+  window.__museiReady = true;
 }
 
 document.addEventListener('DOMContentLoaded', init);
